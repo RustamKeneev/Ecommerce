@@ -1,0 +1,28 @@
+PODS:
+  - BEMCheckBox (1.4.1)
+  - iOSDropDown (0.4.0)
+  - Kingfisher (7.4.1)
+  - SnapKit (5.0.1)
+
+DEPENDENCIES:
+  - BEMCheckBox
+  - iOSDropDown
+  - Kingfisher
+  - SnapKit
+
+SPEC REPOS:
+  trunk:
+    - BEMCheckBox
+    - iOSDropDown
+    - Kingfisher
+    - SnapKit
+
+SPEC CHECKSUMS:
+  BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
+  iOSDropDown: ce9daa584eaa5567cafc1b633e3cc7eb6d9cea42
+  Kingfisher: cd762a593a61b2fbecf7645c00f9a801a3ebfc9c
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+
+PODFILE CHECKSUM: 55734eecb45059e802c74a28b17ead7c71e2df80
+
+COCOAPODS: 1.11.3
