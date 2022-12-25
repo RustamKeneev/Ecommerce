@@ -10,6 +10,7 @@ target 'EcommerceConceptSwift' do
     pod 'Kingfisher'
     pod 'iOSDropDown'
     pod 'BEMCheckBox'
+    pod 'RealmSwift'
     
   target 'EcommerceConceptSwiftTests' do
     inherit! :search_paths

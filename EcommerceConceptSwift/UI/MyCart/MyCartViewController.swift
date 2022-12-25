@@ -150,11 +150,17 @@ class MyCartViewController: BaseViewController {
         return view
     }()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         myCartNavBar()
         configure()
         myCartViewModel.fetchMyCart()
+        myCartTableView.allowsSelection = false
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
     
     func configure(){
@@ -213,6 +219,14 @@ class MyCartViewController: BaseViewController {
             make.height.equalTo(2)
         }
     }
+    
+    @objc func oneTapped(_ sender: Any?) {
+        print("Tapped")
+    }
+    func buttonAction(sender:UIButton!)
+    {
+        print("Button tapped")
+    }
 }
 
 extension MyCartViewController: UITableViewDataSource{
@@ -225,6 +239,9 @@ extension MyCartViewController: UITableViewDataSource{
         cell.selectionStyle = .none
         let data = myCartViewModel.myCartArrayData[indexPath.row]
         cell.setupData(myCartModel: data)
+//        cell.myCartPriceUILabel.text = "\(String(describing: cell.product.discountPrice ?? 0))"
+        cell.productIndex = indexPath.row
+        cell.cartSelectionDelegate = self
         return cell
 
     }
@@ -237,5 +254,11 @@ extension MyCartViewController: UITableViewDelegate{
 extension MyCartViewController: MyCartViewModelDelegate{
     func loadMyCart() {
         myCartTableView.reloadData()
+    }
+}
+
+extension MyCartViewController: CartSelection{
+    func addProductToCart(product: MyCartModel, atindex: Int) {
+        self.myCartViewModel.myCartArrayData[atindex] = product
     }
 }

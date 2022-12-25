@@ -10,18 +10,19 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-
-protocol ItemTableViewCellDelegate: class {
-    func didTapButtonMinus(cell: MyCartModel)
-    func didTapButtonPlus(cell: MyCartModel)
+protocol CartSelection {
+    func addProductToCart(product : MyCartModel, atindex : Int)
 }
 
 class MyCartCell: UITableViewCell{
     
+    var product: MyCartModel!
+    private var counterValue = 1
+    var productIndex = 0
+    
+    var cartSelectionDelegate: CartSelection?
+    
     static let reuseIdentifierCell = "MyCartCell"
-    
-    weak var cellDelegate: ItemTableViewCellDelegate?
-    
     
     private lazy var myCartUIImage: UIImageView = {
         let view = UIImageView()
@@ -43,7 +44,7 @@ class MyCartCell: UITableViewCell{
         view.addSubview(countUILabel)
         view.addSubview(plusUIImage)
         minusUIImage.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(14)
+            make.top.equalToSuperview().offset(4)
             make.centerX.equalToSuperview()
         }
         countUILabel.snp.makeConstraints { make in
@@ -52,31 +53,30 @@ class MyCartCell: UITableViewCell{
         }
         plusUIImage.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview().offset(-8)
+            make.bottom.equalToSuperview().offset(-2)
         }
         return view
     }()
     
-    private lazy var countUILabel: UILabel = {
+    public lazy var countUILabel: UILabel = {
         let view = UILabel()
-        view.text = "2"
+        view.text = "1"
         view.textColor = .white
         view.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         return view
     }()
     
-    private lazy var minusUIImage: UIImageView = {
-        let view = UIImageView()
-        view.image = UIImage.init(named: "minus")
-        let tap = UITapGestureRecognizer(target: self, action: #selector(minusTapped))
-        view.addGestureRecognizer(tap)
-        view.isUserInteractionEnabled = true
+    public lazy var minusUIImage: UIButton = {
+        let view = UIButton()
+        view.setImage(UIImage.init(named: "minus"), for: .normal)
+        view.addTarget(self, action: #selector(minusButtonTapped), for: .touchUpInside)
         return view
     }()
     
-    private lazy var plusUIImage: UIImageView = {
-        let view = UIImageView()
-        view.image = UIImage.init(named: "plus")
+    public lazy var plusUIImage: UIButton = {
+        let view = UIButton()
+        view.setImage(UIImage.init(named: "plus"), for: .normal)
+        view.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)
         return view
     }()
     
@@ -88,7 +88,7 @@ class MyCartCell: UITableViewCell{
         return view
     }()
     
-    private lazy var myCartPriceUILabel: UILabel = {
+    public lazy var myCartPriceUILabel: UILabel = {
         let view = UILabel()
         view.textColor = UIColor.init(hex: "#FF6E4E")
         view.font = UIFont.systemFont(ofSize: 20, weight: .medium)
@@ -96,8 +96,40 @@ class MyCartCell: UITableViewCell{
         return view
     }()
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
+
+    @objc func minusButtonTapped(){
+        print("click ------")
+        if(counterValue != 1){
+            counterValue -= 1;
+        }
+        self.countUILabel.text = "\(counterValue)"
+//        product.discountPrice = counterValue
+        cartSelectionDelegate?.addProductToCart(product: product, atindex: productIndex)
+    }
+//
+    @objc func plusButtonTapped(){
+        print("click ++++++")
+        counterValue += 1;
+        self.countUILabel.text = "\(counterValue)"
+//        product.discountPrice = counterValue ?? nil
+        cartSelectionDelegate?.addProductToCart(product: product, atindex: productIndex)
+    }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        contentView.isUserInteractionEnabled = true
+//        contentView.addSubview(plusUIImage)
+
         backgroundColor = .clear
         setupViews()
         setContraints()
@@ -138,15 +170,11 @@ class MyCartCell: UITableViewCell{
         }
     }
     
-    @objc func minusTapped(){
-        print("click")
-//        cellDelegate?.didTapButtonMinus(cell: self)
-    }
     
     func setupData(myCartModel:MyCartModel){
-        myCartUIImage.image = myCartModel.image
+//        myCartUIImage.image = myCartModel.image
         myCartTitleUILabel.text = myCartModel.text
-        myCartPriceUILabel.text = "$\(String(myCartModel.discountPrice))"
+        myCartPriceUILabel.text = "$\(String(describing: myCartModel.discountPrice ?? 0))"
     }
     
     required init?(coder: NSCoder) {

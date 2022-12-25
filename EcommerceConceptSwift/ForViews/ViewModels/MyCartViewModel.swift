@@ -22,7 +22,8 @@ class MyCartViewModel{
        }
 
     func fetchMyCart() {
-        myCartArrayData.append(MyCartModel(id: 1, image: #imageLiteral(resourceName: "phones_dark"), text: "Galaxy Note 20 Ultra", discountPrice: 1500))
+//        myCartArrayData.append(MyCartModel(id: 1, image: #imageLiteral(resourceName: "phones_dark"), text: "Galaxy Note 20 Ultra", discountPrice: 1500))
+        myCartArrayData.append(MyCartModel(id: 1, image: "", text: "Galaxy Note 20 Ultra", discountPrice: 1500))
         delegate?.loadMyCart()
     }
 }

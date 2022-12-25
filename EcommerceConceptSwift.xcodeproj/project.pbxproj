@@ -51,6 +51,9 @@
 		FF6118D92953293C00D68B9B /* MyCartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6118D82953293C00D68B9B /* MyCartCell.swift */; };
 		FF6118DB2954BB7100D68B9B /* MyCartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6118DA2954BB7100D68B9B /* MyCartModel.swift */; };
 		FF6118DD2954BC7900D68B9B /* MyCartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6118DC2954BC7900D68B9B /* MyCartViewModel.swift */; };
+		FF61195B2956F4C400D68B9B /* DataBaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF61195A2956F4C300D68B9B /* DataBaseRepository.swift */; };
+		FF61195E2956F86600D68B9B /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF61195D2956F86600D68B9B /* DataBase.swift */; };
+		FF6119612957010E00D68B9B /* MyCartDatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6119602957010E00D68B9B /* MyCartDatabaseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +128,9 @@
 		FF6118D82953293C00D68B9B /* MyCartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartCell.swift; sourceTree = "<group>"; };
 		FF6118DA2954BB7100D68B9B /* MyCartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartModel.swift; sourceTree = "<group>"; };
 		FF6118DC2954BC7900D68B9B /* MyCartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartViewModel.swift; sourceTree = "<group>"; };
+		FF61195A2956F4C300D68B9B /* DataBaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseRepository.swift; sourceTree = "<group>"; };
+		FF61195D2956F86600D68B9B /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
+		FF6119602957010E00D68B9B /* MyCartDatabaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartDatabaseModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +255,8 @@
 		FF3D90162942F7AC000DD1FD /* Api */ = {
 			isa = PBXGroup;
 			children = (
+				FF61195F295700E900D68B9B /* Model */,
+				FF61195C2956F84400D68B9B /* Database */,
 				FF3D90412948EE4C000DD1FD /* Repository */,
 				FF3D903129470CC0000DD1FD /* Models */,
 				FF3D903F2948EC8D000DD1FD /* ApiClient.swift */,
@@ -379,6 +387,7 @@
 			isa = PBXGroup;
 			children = (
 				FF3D90422948EE8C000DD1FD /* ApiRepository.swift */,
+				FF61195A2956F4C300D68B9B /* DataBaseRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -405,6 +414,22 @@
 				FF6118D629519A4300D68B9B /* MyCartViewController.swift */,
 			);
 			path = MyCart;
+			sourceTree = "<group>";
+		};
+		FF61195C2956F84400D68B9B /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				FF61195D2956F86600D68B9B /* DataBase.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		FF61195F295700E900D68B9B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FF6119602957010E00D68B9B /* MyCartDatabaseModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -650,10 +675,12 @@
 				FF6118DD2954BC7900D68B9B /* MyCartViewModel.swift in Sources */,
 				FF3D901F29433466000DD1FD /* HomeViewController.swift in Sources */,
 				FF3D903329470CE3000DD1FD /* CategoryModel.swift in Sources */,
+				FF6119612957010E00D68B9B /* MyCartDatabaseModel.swift in Sources */,
 				FF3D90302946419D000DD1FD /* HorizontalMenuCollectioViewHomeCell.swift in Sources */,
 				FF6118D729519A4400D68B9B /* MyCartViewController.swift in Sources */,
 				FF3D8FEA2942ED5F000DD1FD /* MainViewController.swift in Sources */,
 				FF6118D12950A96600D68B9B /* ProductCharacterDetailViewModel.swift in Sources */,
+				FF61195B2956F4C400D68B9B /* DataBaseRepository.swift in Sources */,
 				FF3D902D29463E54000DD1FD /* HomeHorizontalMenuCollectioView.swift in Sources */,
 				FF3D902429435636000DD1FD /* BasketViewController.swift in Sources */,
 				FF3D90502948FC6B000DD1FD /* BaseViewModel.swift in Sources */,
@@ -661,6 +688,7 @@
 				FF6118DB2954BB7100D68B9B /* MyCartModel.swift in Sources */,
 				FF6118CD2950A7D000D68B9B /* ProductCharacterDetail.swift in Sources */,
 				FF3D903E29485C71000DD1FD /* BestSellerCell.swift in Sources */,
+				FF61195E2956F86600D68B9B /* DataBase.swift in Sources */,
 				FF6118C529502A8C00D68B9B /* HorizontalMenuCollectioViewProductDetailCell.swift in Sources */,
 				FF3D90452948F8C9000DD1FD /* HomeModel.swift in Sources */,
 				FF3D90432948EE8C000DD1FD /* ApiRepository.swift in Sources */,

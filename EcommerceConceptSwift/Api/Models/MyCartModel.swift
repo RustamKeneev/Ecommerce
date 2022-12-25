@@ -9,15 +9,15 @@ import Foundation
 import UIKit
 
 struct MyCartModel{
-    var id: Int
-    var image: UIImage
-    var text: String
-    var discountPrice: Int
+    var id: Int? = nil
+    var image: String? = nil
+    var text: String? = nil
+    var discountPrice: Int? = nil
     
-    init(id: Int, image: UIImage, text: String, discountPrice: Int) {
-        self.id = id
-        self.image = image
-        self.text = text
-        self.discountPrice = discountPrice
-    }
+//    init(id: Int, image: String, text: String, discountPrice: Int) {
+//        self.id = id
+//        self.image = image
+//        self.text = text
+//        self.discountPrice = discountPrice
+//    }
 }
