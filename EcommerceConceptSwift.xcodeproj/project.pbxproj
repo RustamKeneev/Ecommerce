@@ -54,6 +54,7 @@
 		FF61195B2956F4C400D68B9B /* DataBaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF61195A2956F4C300D68B9B /* DataBaseRepository.swift */; };
 		FF61195E2956F86600D68B9B /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF61195D2956F86600D68B9B /* DataBase.swift */; };
 		FF6119612957010E00D68B9B /* MyCartDatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6119602957010E00D68B9B /* MyCartDatabaseModel.swift */; };
+		FF6119632957903D00D68B9B /* SaveMyCartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6119622957903C00D68B9B /* SaveMyCartViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,7 @@
 		FF61195A2956F4C300D68B9B /* DataBaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseRepository.swift; sourceTree = "<group>"; };
 		FF61195D2956F86600D68B9B /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
 		FF6119602957010E00D68B9B /* MyCartDatabaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartDatabaseModel.swift; sourceTree = "<group>"; };
+		FF6119622957903C00D68B9B /* SaveMyCartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveMyCartViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -379,6 +381,7 @@
 				FF6118CA2950720900D68B9B /* ProductDetailViewModels.swift */,
 				FF6118D02950A96600D68B9B /* ProductCharacterDetailViewModel.swift */,
 				FF6118DC2954BC7900D68B9B /* MyCartViewModel.swift */,
+				FF6119622957903C00D68B9B /* SaveMyCartViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -674,6 +677,7 @@
 				FF6118C9295070F700D68B9B /* ProductDetailHorizontalMenuCollectioView.swift in Sources */,
 				FF6118DD2954BC7900D68B9B /* MyCartViewModel.swift in Sources */,
 				FF3D901F29433466000DD1FD /* HomeViewController.swift in Sources */,
+				FF6119632957903D00D68B9B /* SaveMyCartViewModel.swift in Sources */,
 				FF3D903329470CE3000DD1FD /* CategoryModel.swift in Sources */,
 				FF6119612957010E00D68B9B /* MyCartDatabaseModel.swift in Sources */,
 				FF3D90302946419D000DD1FD /* HorizontalMenuCollectioViewHomeCell.swift in Sources */,

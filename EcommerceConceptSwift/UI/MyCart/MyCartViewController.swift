@@ -107,7 +107,7 @@ class MyCartViewController: BaseViewController {
         }
         freeUILabel.snp.makeConstraints { make in
             make.centerY.equalTo(deliveryUILabel.snp.centerY)
-            make.left.equalTo(totalPriceUILabel.snp.left)
+            make.right.equalTo(totalPriceUILabel.snp.right)
         }
         return view
     }()
@@ -227,6 +227,14 @@ class MyCartViewController: BaseViewController {
     {
         print("Button tapped")
     }
+    
+    func calculateTotal(){
+        var totalValue = 0
+        for objProduct in myCartViewModel.myCartArrayData {
+            totalValue += objProduct.discountPrice ?? 0
+        }
+        self.totalPriceUILabel.text = "\(totalValue)"
+    }
 }
 
 extension MyCartViewController: UITableViewDataSource{
@@ -260,5 +268,6 @@ extension MyCartViewController: MyCartViewModelDelegate{
 extension MyCartViewController: CartSelection{
     func addProductToCart(product: MyCartModel, atindex: Int) {
         self.myCartViewModel.myCartArrayData[atindex] = product
+        calculateTotal()
     }
 }

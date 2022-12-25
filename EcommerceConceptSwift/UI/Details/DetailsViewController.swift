@@ -18,6 +18,7 @@ class DetailsViewController: BaseViewController {
     private var priceWithoutDiscount: Int? = nil
     private var discountPrice: Int? = nil
     private var picture: String? = nil
+//    private var model: MyCartModel()
     
     static func newInstanse(id: Int, categoryTitle: String, isFavorites: Bool, priceWithoutDiscount: Int,discountPrice: Int,picture: String) -> DetailsViewController {
         let viewController = DetailsViewController()
@@ -35,6 +36,11 @@ class DetailsViewController: BaseViewController {
     private lazy var viewModelProductCharacterDetail: ProductCharacterDetailViewModel = {
         return ProductCharacterDetailViewModel(delegate: self)
     }()
+    
+    private lazy var viewModelSaveMyCartViewModel: SaveMyCartViewModel = {
+        return SaveMyCartViewModel(delegate: self)
+    }()
+
     
     private lazy var firstMemoryGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleFirstMemoryUIView))
     private lazy var secondtMemoryGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSecondMemoryUIView))
@@ -412,6 +418,7 @@ class DetailsViewController: BaseViewController {
     
     @objc func handleAddCartUIView(){
         navigationController?.pushViewController(MyCartViewController(), animated: true)
+        viewModelSaveMyCartViewModel.saveMyCartToDatabase()
     }
 }
 
@@ -480,5 +487,12 @@ extension DetailsViewController: UICollectionViewDelegateFlowLayout {
 extension DetailsViewController: ProductCharacterDetailViewModelDelegate{
     func loadProductCharacterDetail() {
         productCharacterDetailCollectionView.reloadData()
+    }
+}
+
+
+extension DetailsViewController: SaveMyCartDelegate{
+    func showSaveMyCart() {
+        print("test save")
     }
 }

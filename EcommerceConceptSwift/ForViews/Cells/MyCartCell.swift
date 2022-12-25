@@ -16,7 +16,7 @@ protocol CartSelection {
 
 class MyCartCell: UITableViewCell{
     
-    var product: MyCartModel!
+    var product = MyCartModel()
     private var counterValue = 1
     var productIndex = 0
     
@@ -113,7 +113,7 @@ class MyCartCell: UITableViewCell{
             counterValue -= 1;
         }
         self.countUILabel.text = "\(counterValue)"
-//        product.discountPrice = counterValue
+        product.discountPrice = counterValue
         cartSelectionDelegate?.addProductToCart(product: product, atindex: productIndex)
     }
 //
@@ -121,7 +121,7 @@ class MyCartCell: UITableViewCell{
         print("click ++++++")
         counterValue += 1;
         self.countUILabel.text = "\(counterValue)"
-//        product.discountPrice = counterValue ?? nil
+        product.discountPrice = counterValue
         cartSelectionDelegate?.addProductToCart(product: product, atindex: productIndex)
     }
     

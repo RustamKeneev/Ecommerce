@@ -20,4 +20,14 @@ struct MyCartModel{
 //        self.text = text
 //        self.discountPrice = discountPrice
 //    }
+    
+    
+    func toDataBaseModel() -> MyCartDatabaseModel {
+        let model = MyCartDatabaseModel()
+        model.id = String(id ?? 0)
+        model.image = image ?? String()
+        model.text = text ?? String()
+        model.discountPrice = String(discountPrice ?? 0)
+        return model
+    }
 }
